@@ -76,8 +76,8 @@ app.post('/usuarios/validar', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
-app.listen('3000', function () {
-    console.log('Servidor ok en puerto: ');
+app.listen(PORT, function () {
+    console.log('Servidor ok en puerto: '+PORT);
 });
