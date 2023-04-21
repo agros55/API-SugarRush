@@ -121,7 +121,7 @@ app.post('/productos', (req, res)=> {
 // Insertar varios productos
 app.post('/productos/insertar', (req, res)=> {
     let data = {name: req.body.name, image: req.body.image, price: req.body.price, description: req.body.description};
-    for (let item of data) {
+    data.forEach(item => {
         let sql = 'INSERT INTO productos SET ?';
         conexion.query(sql, item, function (error, results) {
             if (error) {
@@ -130,7 +130,7 @@ app.post('/productos/insertar', (req, res)=> {
                 res.send(results);
             }
         });
-    }
+    });
 });
 
 
